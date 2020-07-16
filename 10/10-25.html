@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		img.scape_hidden { display: none; }
+		img.scape_visible { display: block; }
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			let handle;
+			function viewSlide() {
+				const slider = $('#slider');
+				slider.find('img.scape_visible').removeClass('scape_visible');
+				slider.find('img:first').appendTo(slider).addClass('scape_visible');
+			}
+
+			$('#slideStart').on('click', function() {
+				handle = setInterval(viewSlide, 2000);
+
+			});
+			$('#slideStop').on('click', function() {
+				console.log(1);
+				clearInterval(handle);
+			});
+			viewSlide();
+		});
+	</script>
+</head>
+<body>
+	<button id="slideStart">Slide Show!</button>
+	<button id="slideStop">Stop Slide Show!</button>
+	<h3>죽기 전에 가보고 싶은 곳</h3>
+	<div id="slider">
+		<img class="scape_hidden" src="images/bg0.jpg">
+		<img class="scape_hidden" src="images/bg1.jpg">
+		<img class="scape_hidden" src="images/bg2.jpg">
+		<img class="scape_hidden" src="images/bg3.jpg">
+	</div>
+</body>
+</html>
