@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="test1">테스트 버튼</button><br>
+  <button id="unbinding">테스트 버튼에 연결된 click.first 이벤트 해제</button><br>
+  <button id="trigger">테스트 버튼의 click.second 이벤트 강제 호출</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  $('#test1').on('click.first', function(e) {
+    console.log('click.first');
+  });
+
+  $('#test1').on('click.second', function(e) {
+    console.log('click.second!!');
+    console.dir(e.namespace);
+  });
+
+  $('#unbinding').on('click', function(e) {
+    $('#test1').off('click.first');
+  });
+
+  $('#trigger').on('click', function() {
+    $('#test1').trigger('click.second');
+  });
+});
+</script>
+</body>
+</html>

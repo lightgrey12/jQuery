@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+
+$(document).ready(function() {
+  $('#google').on('click', function(e) {
+    if (confirm('이동?') == false) {
+      e.preventDefault();
+    }
+  });
+
+  $(document).on('contextmenu', function(e) {
+    e.preventDefault();
+  });
+});
+
+// $(function() {
+//   $('#google').on('click', function(e) {
+//     if (confirm('이동?') == false) {
+//       e.preventDefault();
+//     }
+//   });
+// });
+
+// $(document).ready(function() {
+// 	$("#google").on("click", function(e) {
+// 		if (confirm("정말로 구글로 이동할까요?") == false) {
+// 			e.preventDefault();
+// 		}
+// 	});
+	
+// 	$(document).on("contextmenu", function(e) {
+// 		e.preventDefault();
+// 	});
+// });
+</script>
+</head>
+<body>
+  <a id="google" href="https://www.google.com">구글!!</a>
+</body>
+</html>

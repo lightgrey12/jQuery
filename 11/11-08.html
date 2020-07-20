@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+ X : <input type="text" id="x" value="5"><br>
+ Y : <input type='text' id="y" value="3"><br>
+ <button id="add">덧셈</button>
+ <button id="multiply">곱셈</button>
+ 처리결과 : <span id="result">0</span>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+  function calcHandler(e) {
+    const x = parseInt($('#x').val());
+    const y = parseInt($('#y').val());
+    let result = 0;
+
+    if (e.data === '+') {
+      result = x + y;
+    } else if (e.data === '*') {
+      result = x * y;
+    } else {
+      throw new Error('처리 불가능');
+    }
+    
+    $('#result').html(result);
+  }
+
+  $('#add').click('+', calcHandler);
+  $('#multiply').click('*', calcHandler);
+});
+</script>
+</body>
+</html>
