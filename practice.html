@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		body { margin: 0; padding: 0; box-sizing: border-box; }
+
+		.btn-wrap { overflow:hidden; margin:20px; }
+		.btn-wrap li { float:left; list-style: none; background-color: #eee; }
+		.btn-wrap li.action { background-color: #666; }
+		.btn-wrap .btn { width:50px; height:50px;  border:1px solid #666;  }
+		.btn-wrap .btn-search { width: 50px; height: 50px;  margin-left: 20px; cursor: pointer; float: left; background-color: lightblue; }
+	</style>
+</head>
+<body>
+	<ul class="btn-wrap">
+		<li class="btn-selector all">
+			<div class="btn">전체</div>
+		</li>
+		<li class="btn-selector">
+			<div class="btn">남자</div>
+		</li>
+		<li class="btn-selector">
+			<div class="btn">여자</div>
+		</li>
+		<li class="btn-selector">
+			<div class="btn">외계인</div>
+		</li>
+		<li class="btn-selector">
+			<div class="btn">외인</div>
+		</li>
+		<div class="btn-search">검색</div>
+	</ul>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function()
+	{
+		$(document).on('click', '.btn-selector', function()
+		{
+			if ($(this).hasClass('all'))
+			{
+				if ($(this).hasClass('action'))
+				{
+					$('.btn-selector').removeClass('action');
+				}
+				else
+				{
+					$('.btn-selector').addClass('action');
+				}
+			}
+			else
+			{
+				if ($(this).hasClass('action'))
+				{
+					if ($('.btn-selector.action').length === $('.btn-selector').length )
+					{
+						$('.btn-selector.all').removeClass('action');
+					}
+					$(this).removeClass('action');
+				}
+				else
+				{
+					if ($('.btn-selector.action').length === $('.btn-selector').length -2)
+					{
+						$('.btn-selector.all').addClass('action');
+					}
+					$(this).addClass('action');
+				}
+			}
+		});
+
+		$(document).on('click', '.btn-search', function()
+		{
+			/** for문 이용 */
+			var textMan = $('.btn-selector.action:not(".all") .btn').eq(0).text() + "   " + $('.btn-selector.action:not(".all") .btn').eq(1).text();
+			//console.log(typeof textMan);
+			alert(textMan);
+		});
+	});
+
+
+
+</script>
+</body>
+</html>
