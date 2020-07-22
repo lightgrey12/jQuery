@@ -73,10 +73,22 @@
 
 		$(document).on('click', '.btn-search', function()
 		{
-			/** for문 이용 */
-			var textMan = $('.btn-selector.action:not(".all") .btn').eq(0).text() + "   " + $('.btn-selector.action:not(".all") .btn').eq(1).text();
-			//console.log(typeof textMan);
-			alert(textMan);
+			/* for문 이용 */
+			var selectText = $('.btn-selector.action:not(".all") .btn');
+			var text = '';
+			for (var i = 0; i < selectText.length; i++)
+			{
+				if (i === selectText.length - 1)
+				{
+					text += selectText.eq(i).text();
+				} 
+				else
+				{
+					text += selectText.eq(i).text() + ', ';
+				}
+			}	
+			alert(text);		
+			
 		});
 	});
 
