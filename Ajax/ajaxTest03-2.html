@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<div id="div1"></div>
+	<button>Get Content</button>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function()
+	{
+		$('.btn').on('click', function()
+		{
+			//alert($(this).parent().parent().children('.no').text());
+			alert($(this).parents('tr').find('.no').text());
+		});
+
+		$(document).on('click','.btn', function()
+		{
+			alert($(this).parents('tr').find('.no').text());
+		});
+
+		$('button').on('click', function()
+		{
+			$.ajax(
+				{
+					url: 'ajax-contents02.html',
+					success: function(result)
+					{
+						$('#div1').append(result);
+						var html = '<span class="btn">dfsdf</span>';
+						$('#div1').append(html);
+					}
+				}
+			);
+		});
+	});
+</script>
+</body>
+</html>

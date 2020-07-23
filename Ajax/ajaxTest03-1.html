@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<div id="div1"><h2>jQuery AJAX</h2></div>
+
+	<button>Get Content</button>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$(document).ready(function()
+	{
+		$('button').on('click', function()
+		{
+			$.ajax(
+				{
+					url: "ajax-contents.html",
+					success: function(result)
+					{
+						$('#div1').append(result);
+					}
+				}
+			);
+		});
+	});
+</script>
+</body>
+</html>

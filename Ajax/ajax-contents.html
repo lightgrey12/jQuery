@@ -1,0 +1,31 @@
+<table>
+	<thead>
+	<tr>
+		<th>번호</th>
+		<th>버튼</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr class="ajax-list-item">
+		<td class="no">1</td>
+		<td class="no">2</td>
+		<td>
+			<div>
+				<button class="btn">버튼</button>
+			</div>
+		</td>
+	</tr>
+	</tbody>
+</table>
+<!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>-->
+<script>
+	$('.btn').on('click', function()
+	{
+		//alert($(this).parent().parent().children('.no').text());
+		alert($(this).parents('tr').find('.no').text());
+	});
+</script>
+<!--
+//1. 스크립트 넣기
+//2. 스크립트 안넣기
+-->
