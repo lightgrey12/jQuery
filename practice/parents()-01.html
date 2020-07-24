@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		b, span, p, html body {
+			padding: .5em;
+			border: 1px solid;
+		}
+		b {
+			color: blue;
+		}
+		strong {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p>
+			<span>
+				<b>My parents are: </b>
+			</span>
+		</p>
+	</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	var parentEls = $('b').parents()
+		.map(function()
+		{
+			return this.tagName;
+		})
+		.get()
+		.join(', ');
+	$('b').append('<strong>' + parentEls + '</strong>');
+</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+</head>
+<body>
+	<p></p>
+
+	<select id="single">
+		<option>Single</option>
+		<option>Single2</option>
+	</select>
+
+	<select id="multiple" multiple="multiple">
+		<option selected="selected">Multiple</option>
+		<option>Multiple2</option>
+		<option selected="selected">Multiple3</option>
+	</select>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	// val() => if empty, returns undefined
+	// if no options are selected, returns an empty array
+	function displayVals()
+	{
+		var singleValues = $('#single').val();
+		var multipleValues = $('#multiple').val();
+		$('p').html('<b>Single:</b> ' + singleValues +
+			' <b>Multiple:</b> ' + multipleValues.join(', '));
+		console.log(typeof multipleValues); //object
+	}
+	$('select').change(displayVals);
+	displayVals();
+</script>
+</body>
+</html>

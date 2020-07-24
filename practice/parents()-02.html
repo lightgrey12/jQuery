@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		p, div, span {
+			margin: 2px;
+			padding: 1px;
+		}
+		div {
+			border: 2px white solid;
+		}
+		span {
+			cursor: pointer;
+			font-size: 12px;
+		}
+		.selected {
+			color: blue;
+		}
+		b {
+			color: red;
+			display: block;
+			font-size: 14px;
+		}
+	</style>
+</head>
+<body>
+	<p>
+		<div>
+			<div><span>Hello</span></div>
+			<span>Hello Again</span>
+		</div>
+		<div>
+			<span>And Hello Again</span>
+		</div>
+	</p>
+	<b>Click Hellos to toggle their parents.</b>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	function showParents()
+	{
+		$('div').css('border-color', 'white');
+		var len = $('span.selected')
+			.parents('div')
+			.css('border', '2px red solid')
+			.length;
+		$('b').text('Unique div parents: ' + len);
+	}
+	$('span').on('click', function()
+	{
+		$(this).toggleClass('selected');
+		showParents();
+	});
+</script>
+</body>
+</html>

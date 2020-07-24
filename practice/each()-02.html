@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		div {
+			width: 40px;
+			height: 40px;
+			margin: 5px;
+			float: left;
+			border: 2px blue solid;
+			text-align: center;
+		}
+		span {
+			color: red;
+		}
+	</style>
+</head>
+<body>
+	<button>Change colors</button>
+	<span></span>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div id="stop"></div>
+	<div></div>
+	<div></div>
+	<div></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$('button').on('click', function()
+	{
+		$('div').each(function(index, element)
+		{
+			// element == this
+			$(element).css('backgroundColor', 'yellow');
+			if ($(this).is('#stop'))
+			{
+				$('span').text('Stopped at div index #' + index);
+				return false;
+			}
+		});
+	});
+</script>
+</body>
+</html>

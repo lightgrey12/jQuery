@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		div {
+			width: 60px;
+			height: 60px;
+			margin: 10px;
+			float: left;
+			border: 2px solid blue;
+		}
+		.blue {
+			background: blue;
+		}
+	</style>
+</head>
+<body>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+	<div></div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	$('body').find('div').eq(2).addClass('blue'); //return type: Integer
+</script>
+</body>
+</html>

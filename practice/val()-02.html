@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<style>
+		p {
+			color: blue;
+			margin: 8px;
+		}
+	</style>
+</head>
+<body>
+	<input type="text" value="some text">
+	<p class="key-up-count"></p>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+	var key_up_count = 0;
+	$('input')
+		.keyup(function()
+		{
+			var value = $(this).val();
+			$('p').text(value);
+		})
+		.keyup(function () {
+			key_up_count++;
+			$('.key-up-count').text(key_up_count);
+		});
+</script>
+</body>
+</html>
