@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+	$.ajax({
+		url : "/contact/list.jsp",
+		type : "GET",
+		data : { pageno:2, pagesize:5 },
+		success : function(data) {
+			console.log(data);
+		}
+	});
+});
+</script>
+</body>
+</html>
